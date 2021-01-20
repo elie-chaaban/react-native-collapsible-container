@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "A collapsible View element implemented using react-native-collapsible",
   "main": "index.js",
-  "homepage": "https://eliav2.github.io/react-native-collapsible-view/",
+  "homepage": "https://github.com/elie-chaaban/react-native-collapsible-container#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Eliav2/react-native-collapsible-view"
+    "url": "https://github.com/elie-chaaban/react-native-collapsible-container"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm start --prefix ./example"
   },
-  "author": "Eliav Louski",
+  "author": "Elie Chaaban",
   "license": "MIT",
   "dependencies": {
     "react-native-collapsible": "^1.5.3",
@@ -29,7 +29,7 @@
   "keywords": [
     "react",
     "react-native",
-    "react-native-collapsible-view",
+    "react-native-collapsible-container",
     "view",
     "collapsible",
     "expandable",
