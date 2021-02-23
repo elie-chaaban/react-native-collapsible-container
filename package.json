@@ -6,7 +6,7 @@
   "homepage": "https://github.com/elie-chaaban/react-native-collapsible-container#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elie-chaaban/react-native-collapsible-container"
+    "url": "git+https://github.com/elie-chaaban/react-native-collapsible-container.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -45,5 +45,11 @@
   "files": [
     "index.js",
     "ArrowDownIcon.js"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/elie-chaaban/react-native-collapsible-container/issues"
+  },
+  "directories": {
+    "example": "example"
+  }
 }

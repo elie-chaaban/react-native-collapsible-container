@@ -19,6 +19,9 @@ export default ({
   activeOpacityFeedback = 0.3,
   titleProps = {},
   titleStyle = {},
+  baseColor = '',
+  blackColor = '',
+  toggled
 }) => {
   let controlled = expanded === null ? false : true;
   const [show, setShow] = useState(initExpanded);
@@ -67,13 +70,14 @@ export default ({
   if (isRTL === "auto") isRTL = I18nManager.isRTL;
   else if (isRTL !== I18nManager.isRTL) rowDir = "row-reverse";
 
-  const rotateAngle = isRTL ? 90 : -90;
+  const rotateAngle = isRTL ? -180 : 180;
   const rotateAnimDeg = rotateAnim.interpolate({
     inputRange: [0, 360],
     outputRange: ["0deg", "360deg"],
   });
 
-  const TitleElement = typeof title === "string" ? <Text style={styles.TitleText}>{title}</Text> : title;
+  const TitleElement = typeof title === "string" ? <Text style={[styles.TitleText, {
+     color: show ? baseColor : blackColor}]}>{title}</Text> : title;
 
   useEffect(() => {
     // this part is to trigger collapsible animation only after he has been fully mounted so animation would
@@ -83,6 +87,15 @@ export default ({
       // handleArrowRotate();
     }
   }, [mounted]);
+
+  useEffect(() => {
+    // added this part by myself Elie Chaaban, whenever we select a valid item from the picker
+    // it will collapse expand
+    if (mounted) {
+      setShow(!show);
+      // handleArrowRotate();
+    }
+  }, [toggled]);
 
   useEffect(() => {
     // on mounting set the rotation angel
@@ -109,7 +122,7 @@ export default ({
         {...titleProps}
       >
         {noArrow ? null : (
-          <Animated.View style={{ transform: [{ rotate: rotateAnimDeg }] }}>
+          <Animated.View style={{ transform: [{ rotate: rotateAnimDeg }], position: 'absolute', right: 0 }}>
             <ArrowDownIcon {...arrowStyling} />
           </Animated.View>
         )}
@@ -128,13 +141,10 @@ export default ({
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
+    //alignItems: "center",
     marginHorizontal: 10,
     marginVertical: 5,
     padding: 5,
-    borderColor: "grey",
-    borderWidth: 1,
-    borderStyle: "solid",
   },
-  TitleText: { color: "#3385ff", fontSize: 16, padding: 5 },
+  TitleText: { fontSize: 16, padding: 5 },
 });
