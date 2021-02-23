@@ -1,6 +1,6 @@
 {
   "name": "react-native-collapsible-container",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A collapsible View element implemented using react-native-collapsible",
   "main": "index.js",
   "homepage": "https://github.com/elie-chaaban/react-native-collapsible-container#readme",
